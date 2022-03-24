@@ -28,4 +28,4 @@ jobs:
           aws-region: sa-east-1
           
       - name: Enviando para s3
-        run: aws s3 sync ./dist/ProEventos-App s3://test-deploy-angular-github
+        run: aws s3 sync ./dist/payment-app s3://test-deploy-angular-github
