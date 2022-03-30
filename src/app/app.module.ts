@@ -34,7 +34,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('740627097632-6broska0j6b8eomi0inbqnk8i5t2b36b.apps.googleusercontent.com')
+            provider: new GoogleLoginProvider('740627097632-65d9qjrpq28r7s5emghjr99arvv8js11.apps.googleusercontent.com')
           }
         ]
       } as SocialAuthServiceConfig
