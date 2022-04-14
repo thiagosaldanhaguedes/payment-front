@@ -35,7 +35,7 @@ export function tokenGetter(){
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:61235"],       
+        allowedDomains: ["paymentapi-test.us-east-1.elasticbeanstalk.com"],       
         disallowedRoutes: []
       },
     })
@@ -48,7 +48,7 @@ export function tokenGetter(){
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('740627097632-te35vtqjqviif44ef0mdldpo0j964j1c.apps.googleusercontent.com') ////740627097632-65d9qjrpq28r7s5emghjr99arvv8js11.apps.googleusercontent.com
+            provider: new GoogleLoginProvider('740627097632-65d9qjrpq28r7s5emghjr99arvv8js11.apps.googleusercontent.com') ////produção-740627097632-65d9qjrpq28r7s5emghjr99arvv8js11.apps.googleusercontent.com---local-740627097632-te35vtqjqviif44ef0mdldpo0j964j1c.apps.googleusercontent.com
           }
         ]
       } as SocialAuthServiceConfig
