@@ -10,7 +10,7 @@ export class PaymentDetailService {
   constructor(private http:HttpClient) { }
 
   formData:PaymentDetail = new PaymentDetail();
-  readonly baseURL = 'http://paymentapi-test.us-east-1.elasticbeanstalk.com/api/PaymentDetail'
+  readonly baseURL = 'http://localhost:61235/api/PaymentDetail'//'http://paymentapi-test.us-east-1.elasticbeanstalk.com/api/PaymentDetail'
 
   postPaymentDetail(){
     return this.http.post(this.baseURL,this.formData);

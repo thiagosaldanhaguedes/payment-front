@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-payment-details',
@@ -9,11 +10,20 @@ import { Router } from '@angular/router';
 })
 export class PaymentDetailsComponent implements OnInit {
 
+  payments: any;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.http.get("http://localhost:61235/api/PaymentDetail")
+      .subscribe(response => {
+        this.payments = response;
+      }, err => {
+        console.log(err);
+      })
   }
 
   signOut(): void{

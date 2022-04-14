@@ -9,7 +9,13 @@ import { PaymentDetailFormComponent } from './payment-details/payment-detail-for
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './auth-guard/auth-guard.service';
 
+export function tokenGetter(){
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -17,14 +23,22 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PaymentDetailsComponent,
     PaymentDetailFormComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     SocialLoginModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:61235"],       
+        disallowedRoutes: []
+      },
+    })
   ],
   providers: [
     {
@@ -34,11 +48,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('740627097632-65d9qjrpq28r7s5emghjr99arvv8js11.apps.googleusercontent.com')
+            provider: new GoogleLoginProvider('740627097632-te35vtqjqviif44ef0mdldpo0j964j1c.apps.googleusercontent.com') ////740627097632-65d9qjrpq28r7s5emghjr99arvv8js11.apps.googleusercontent.com
           }
         ]
       } as SocialAuthServiceConfig
-    }
+    },
+    [AuthGuard]
   ],
   bootstrap: [AppComponent]
 })
