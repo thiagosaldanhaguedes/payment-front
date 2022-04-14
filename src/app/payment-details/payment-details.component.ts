@@ -18,7 +18,7 @@ export class PaymentDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:61235/api/PaymentDetail")
+    this.http.get("http://paymentapi-test.us-east-1.elasticbeanstalk.com/api/PaymentDetail")
       .subscribe(response => {
         this.payments = response;
       }, err => {

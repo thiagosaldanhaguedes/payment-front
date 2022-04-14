@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       'password': form.value.password
     }
 
-    this.http.post("http://localhost:61235/api/auth/login", credentials)
+    this.http.post("http://paymentapi-test.us-east-1.elasticbeanstalk.com/api/auth/login", credentials)
       .subscribe(response => {
         const token = (<any>response).token;
         localStorage.setItem("jwt", token);
